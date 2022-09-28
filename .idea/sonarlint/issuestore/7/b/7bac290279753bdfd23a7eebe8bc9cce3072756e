@@ -1,0 +1,11 @@
+
+c
+java:S1192)"MDefine a constant instead of duplicating this literal "category3_id" 3 times.(ŞÍğ
+„
+java:S14882"iImmediately return this expression instead of assigning it to the temporary variable "baseTrademarkList".(½ ˆúøÿÿÿÿ
+„
+java:S1488Q"iImmediately return this expression instead of assigning it to the temporary variable "baseTrademarkList".(šö³ÿÿÿÿÿ
+h
+java:S1612-"RReplace this lambda with method reference 'BaseCategoryTrademark::getTrademarkId'.(şÂ†ã
+h
+java:S1612M"RReplace this lambda with method reference 'BaseCategoryTrademark::getTrademarkId'.(şÂ†ã

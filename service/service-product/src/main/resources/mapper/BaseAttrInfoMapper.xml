@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--namespace:接口的全限定类名 -->
+<mapper namespace="com.atguigu.gmall.product.mapper.BaseAttrInfoMapper">
+
+
+<!--结果集处理-->
+    <resultMap id="baseAttrInfoMap" autoMapping="true" type="com.atguigu.gmall.model.product.BaseAttrInfo">
+<id column="id" property="id"></id>
+<collection property="attrValueList" ofType="com.atguigu.gmall.model.product.BaseAttrValue" autoMapping="true">
+<id column="attr_value_id" property="id"></id>
+</collection>
+    </resultMap>
+
+    <select id="selectAttrInfoList" resultMap="baseAttrInfoMap">
+        select bai.id,
+               bai.attr_name,
+               bai.category_id,
+               bai.category_level,
+               bav.id attr_value_id,
+               bav.value_name,
+               bav.attr_id
+        from base_attr_info bai  inner join base_attr_value bav
+        on bai.id = bav.attr_id
+        <where>
+       <if test="category1Id != 0 and category1Id != null">
+           or (category_id = #{category1Id} and category_level = 1)
+       </if>
+       <if test="category2Id != 0 and category2Id != null">
+                or (category_id = #{category2Id} and category_level = 2)
+       </if>
+       <if test="category3Id != 0 and category3Id != null">
+                or (category_id = #{category3Id} and category_level = 3)
+       </if>
+        </where>
+        order by bai.category_level, bai.id
+
+    </select>
+
+
+</mapper>
